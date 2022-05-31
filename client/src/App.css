@@ -1,33 +1,73 @@
-:root {
-    --primary-bg: white;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
+
+body{
+  background-image: url(./bg.png);
+}
+
+.box {
+  border: 1px solid #dfdfdf;
+  background-color: #fff;
+}
+
+.g-btn {
+  width: 100% !important;
+  height: 40px !important;
+  line-height: 40px !important;
+  font-size: 15px !important;
+}
+.g-btn > div,
+.g-btn > div > svg {
+  width: 40px !important;
+  height: 38px !important;
+}
+
+
+/* Navbar Starts  */
 
 .navbar{
-    align-items: center;
-    background-color: var(--primary-bg);
-    box-shadow: 0 1px 2px rgba(51, 51, 51, 0.3);
-    display: flex;
-    justify-content: space-between;
-    padding: .5rem 1rem;
-    max-width: 1000px;
-    margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: .5rem 2rem;
+  background-color: white;
 }
 
-.navbar .logo{
-    width: 50px;
+.logo{
+  height: 50px;
 }
 
-.navbar .nav-link{
-    display: flex;
-    list-style: none;
-    gap: 1rem;
+.nav-link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 1rem;
+  margin: 0;
 }
 
-.nav-link a{
-    text-decoration: none;
-    color: #333;
-    padding-bottom: .2rem;
+.form{
+  max-width: 500px;
+  margin: 2rem auto;
 }
-.nav-link a:hover{
-    border-bottom: 2px solid #002;
+
+.hero{
+  display: flex;
+  width: 100%;
+}
+
+.hero .image{
+  width: 50%;
+}
+
+.hero .content{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

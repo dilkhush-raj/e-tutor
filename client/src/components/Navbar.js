@@ -1,4 +1,4 @@
-// import "../App.css"
+import {Link} from 'react-router-dom'
 
 export default function Navbar() {
 
@@ -8,30 +8,27 @@ export default function Navbar() {
             "path": "/"
         },
         {
-            "title": "Courses",
-            "path": "/courses"
+            "title": "Login",
+            "path": "/login"
         },
         {
-            "title": "Support",
-            "path": "/support"
+            "title": "Signup",
+            "path": "/signup"
         },
     ]
 
     return (
       <div className="navbar">
-        <img src="/images/logo.png" alt="logo" className="logo" />
+        <Link to='/'><img src="/images/logo.png" alt="logo" className="logo" /></Link>
         <ul className="nav-link">
         {Links.map((item, index) => {
               return (
                 <li key={index}>
-                    <a href={item.path}>{item.title}</a>
+                    <Link to={item.path}>{item.title}</Link>
                 </li>
               );
             })}
         </ul>
-        <div className="login">
-            Login
-        </div>
       </div>
     );
   }
