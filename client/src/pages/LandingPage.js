@@ -1,4 +1,4 @@
-import Hero from "../components/Hero.js";
+// import Hero from "../components/Hero.js";
 import React from "react";
 import { Navigate } from "react-router-dom";
 import { useUserAuth } from "../context/UserAuthContext";
@@ -14,7 +14,7 @@ export default function LandingPage() {
 
     return (
       <div className="home">
-        <Hero />
+        {/* <Hero /> */}
         
       </div>
     );
