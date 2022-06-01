@@ -2,7 +2,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import LoggedUser from "./components/Home";
-import Hero from "./components/Hero";
 import Home from "./pages/LandingPage";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
