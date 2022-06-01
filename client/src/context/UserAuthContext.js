@@ -6,6 +6,7 @@ import {
   signOut,
   GoogleAuthProvider,
   signInWithPopup,
+  sendPasswordResetEmail
 } from "firebase/auth";
 import { auth } from "../firebase";
 
@@ -26,6 +27,12 @@ export function UserAuthContextProvider({ children }) {
   function googleSignIn() {
     const googleAuthProvider = new GoogleAuthProvider();
     return signInWithPopup(auth, googleAuthProvider);
+  }
+  function resetPassword(email) {
+    alert('')
+    return auth.sendPasswordResetEmail(email).then((a) => {
+      alert(a)
+    })
   }
 
   useEffect(() => {
