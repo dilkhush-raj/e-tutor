@@ -17,7 +17,7 @@ const Login = () => {
     setError("");
     try {
       await logIn(email, password);
-      navigate("/user");
+      navigate("/home");
     } catch (err) {
       setError(err.message);
     }
@@ -27,7 +27,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await googleSignIn();
-      navigate("/user");
+      navigate("/home");
     } catch (error) {
       console.log(error.message);
     }
@@ -35,8 +35,8 @@ const Login = () => {
 
   return (
     <>
-      <div className="p-4 box form">
-        <h2 className="mb-3">Login to e-Tutor</h2>
+      <div className="p-4 box">
+        <h2 className="mb-3">Firebase Auth Login</h2>
         {error && <Alert variant="danger">{error}</Alert>}
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -69,11 +69,10 @@ const Login = () => {
             onClick={handleGoogleSignIn}
           />
         </div>
-        <div className="p-4 box mt-3 text-center">
+      </div>
+      <div className="p-4 box mt-3 text-center">
         Don't have an account? <Link to="/signup">Sign up</Link>
       </div>
-      </div>
-      
     </>
   );
 };
