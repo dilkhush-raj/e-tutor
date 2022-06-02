@@ -9,8 +9,7 @@ const Home = () => {
   return (
     <>
       <h1 className="title">
-        Let's start learning, &nbsp;
-        {user && user.email}
+        Let's start learning, {user && user.displayName}
       </h1>
     </>
   );
