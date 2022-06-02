@@ -4,10 +4,6 @@ export default function Navbar() {
 
     const Links = [
         {
-            "title": "Home",
-            "path": "/"
-        },
-        {
             "title": "Login",
             "path": "/login"
         },
@@ -19,7 +15,10 @@ export default function Navbar() {
 
     return (
       <div className="navbar">
-        <Link to='/'><img src="/images/logo.png" alt="logo" className="logo" /></Link>
+        <Link to='/'>
+          {/* <img src="/images/logo.png" alt="logo" className="logo" /> */}
+          <h1>e-Tutor</h1>
+        </Link>
         <ul className="nav-link">
         {Links.map((item, index) => {
               return (

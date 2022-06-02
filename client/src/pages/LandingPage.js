@@ -1,21 +1,19 @@
 // import Hero from "../components/Hero.js";
 import React from "react";
-import { Navigate } from "react-router-dom";
-import { useUserAuth } from "../context/UserAuthContext";
 
 export default function LandingPage() {
-    const { user } = useUserAuth();
-  
-    console.log("Check user in Private: ", user);
-    if (user) {
-      return <Navigate to="/home" />;
-    }
-
-
-    return (
-      <div className="home">
-        {/* <Hero /> */}
-        
+  return (
+    <div className="home">
+      <div className="hero">
+        <div className="content">
+          <h1>Welcome to e-Tutor</h1>
+          <p>We have the best tutor to teach you.</p>
+        </div>
+        <div className="image">
+          <img src="/images/hero.svg" alt="Hero-image" />
+        </div>
       </div>
-    );
-  }
+      <h2 className="title">Popular Courses on e-Tutor</h2>
+    </div>
+  );
+}

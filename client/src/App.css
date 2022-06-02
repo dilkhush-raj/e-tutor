@@ -4,8 +4,14 @@
   box-sizing: border-box;
 }
 
+:root{
+  --primary-bg: rgba(42, 42, 42, 0.2);
+  --primary-text: #eee;
+}
+
 body{
-  background-image: url(./bg.png);
+  background-image: url(/public/images/bg.png);
+  color: var(--primary-text);
 }
 
 .box {
@@ -34,7 +40,10 @@ body{
   justify-content: space-between;
   width: 100%;
   padding: .5rem 2rem;
-  background-color: white;
+  background-color: var(--primary-bg);
+  color: var(--primary-bg);
+  grid-column: 1/3;
+  box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.384);
 }
 
 .logo{
@@ -57,7 +66,7 @@ body{
 
 .hero{
   display: flex;
-  width: 100%;
+  background-image: linear-gradient(315deg, #8053ac38 0%, #647dee35 74%);
 }
 
 .hero .image{
@@ -72,16 +81,95 @@ body{
   justify-content: center;
 }
 
+
 .Container{
   padding-top: 2rem;
 }
 
 a{
   text-decoration: none;
-  color: black;
+  color: var(--primary-text);
 }
 
 .box{
   max-width: 500px;
   margin: 2rem auto;
+}
+
+/* Sidebar starts  */
+
+.sidebar{
+  background-color: var(--primary-bg);
+  color: var(--primary-bg);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.384); */
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.user-image img{
+  width: 150px;
+  height: 150px;
+  border: 10px solid rgba(84, 84, 86, 0.3);
+  border-radius: 100%;
+}
+
+.user-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+  margin-bottom: 1rem;
+}
+
+.sidebar .row{
+  display: flex;
+  color: var(--primary-text);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.row a{
+  padding: .5rem 2rem;
+}
+
+.row a:hover{
+  background-color: rgba(0, 0, 34, 0.3);
+  color: white;
+}
+
+.app-wrap{
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  grid-template-rows: 80px 1fr;
+  height: 100vh;
+}
+
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.btn{
+  background-color: #0af;
+  color: white;
+  cursor: pointer;
+  width: max-content;
+  margin: 1rem;
+}
+
+.title{
+  padding: 1rem;
 }
