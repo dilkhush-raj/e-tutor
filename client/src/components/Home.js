@@ -5,29 +5,13 @@ import { useUserAuth } from "../context/UserAuthContext";
 // import Hero from "./Hero.js";
 
 const Home = () => {
-  const { logOut, user } = useUserAuth();
-  const navigate = useNavigate();
-  const handleLogout = async () => {
-    try {
-      await logOut();
-      navigate("/");
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+  const { user } = useUserAuth();
   return (
     <>
-    {/* <Hero /> */}
-      <div className="p-4 box mt-3 text-center">
-        Hello Welcome <br />
+      <h1 className="title">
+        Let's start learning, &nbsp;
         {user && user.email}
-      </div>
-      <div className="d-grid gap-2 box">
-        <Button variant="primary" onClick={handleLogout}>
-          Log out
-        </Button>
-      </div>
-      
+      </h1>
     </>
   );
 };
