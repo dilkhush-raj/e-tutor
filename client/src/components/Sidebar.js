@@ -51,9 +51,12 @@ export default function Sidebar() {
     <div className="sidebar">
       <div className="row">
         <div className="user-image">
-          <img src="/images/avatar.png" alt="user profile" />
+          <img src={user.photoURL} alt="user profile" />
         </div>
-        {user && user.email}
+        <div className="center">
+        <div>{user && user.displayName}</div>
+        <div>{user && user.email}</div>
+        </div>
       </div>
       <div className="row">
         <div className="center btn" onClick={handleLogout}>
