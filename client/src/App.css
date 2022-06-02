@@ -2,6 +2,41 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+*:hover {
+  scrollbar-color: #ccc #eee;
+}
+
+*::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+*::-webkit-scrollbar-track {
+  margin: 1rem;
+  background: center / 100% 25% no-repeat
+    linear-gradient(0deg, transparent, transparent);
+  border-radius: 1rem;
+}
+*:hover::-webkit-scrollbar-track {
+  background-image: linear-gradient(0deg, lightgray, lightgray);
+}
+*::-webkit-scrollbar-track:hover {
+  background-image: linear-gradient(0deg, silver, silver);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 1rem;
+}
+*:hover::-webkit-scrollbar-thumb {
+  background: lightgrey;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: silver;
 }
 
 :root{
@@ -96,6 +131,11 @@ a{
   margin: 2rem auto;
 }
 
+.page{
+  width: 100%;
+  overflow-y: auto;
+  height: calc(100vh - 80px);
+}
 /* Sidebar starts  */
 
 .sidebar{
@@ -153,6 +193,7 @@ a{
   grid-template-columns: 280px 1fr;
   grid-template-rows: 80px 1fr;
   height: 100vh;
+  overflow: hidden;
 }
 
 .center{
@@ -173,4 +214,66 @@ a{
 
 .title{
   padding: 1rem;
+}
+
+.popular-course{
+  padding: 1rem;
+  width: 100%;
+}
+
+:root {
+  --gutter: 1rem;
+}
+
+
+.HorizontalScroll {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  /* margin: 0 calc(-1 * var(--gutter));
+  margin-bottom: calc(var(--gutter) * 0.5 - 0.5rem * 0.5);
+  padding-bottom: calc(var(--gutter) * 0.5 - 0.5rem * 0.5); */
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  width: 100%;
+  padding: 1rem;
+}
+
+
+.HorizontalScroll:before,
+.HorizontalScroll:after {
+  content: '';
+  min-width: calc(var(--gutter) * 0.5);
+}
+
+.HorizontalScroll_Item {
+  margin: 0 calc(var(--gutter) * 0.5);
+  scroll-snap-align: center;
+}
+
+.NoScrollbar {
+  scrollbar-width: none;
+  /* margin-bottom: 0; */
+  /* padding-bottom: 0; */
+}
+.NoScrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.Block {
+  margin-top: 0;
+  margin-bottom: var(--gutter);
+}
+.Block:last-child {
+  margin-bottom: 0;
+}
+
+.Item {
+  background: lightseagreen;
+  border-radius: 1rem;
+  min-width: calc(50% - var(--gutter) * 2.5);
+  height: 300px;
+}
+.Item.HorizontalScroll_Item {
+  background: cornflowerblue;
 }

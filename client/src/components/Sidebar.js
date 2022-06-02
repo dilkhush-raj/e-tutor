@@ -3,10 +3,12 @@ import Home from "./Home";
 import React from "react";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
+import { useState } from "react";
 // import Hero from "./Hero.js";
 
 export default function Sidebar() {
-  const { logOut, user } = useUserAuth();
+    const { logOut, user } = useUserAuth();
+    const [imgSrc, setImgSrc] = useState("/images/avatar.png");
   const navigate = useNavigate();
   const handleLogout = async () => {
     try {
@@ -51,11 +53,12 @@ export default function Sidebar() {
     <div className="sidebar">
       <div className="row">
         <div className="user-image">
-          <img src={user.photoURL} alt="user profile" />
+          {/* <img src="/images/avatar.png" alt="user profile" /> */}
+          <img src={imgSrc} onError = {() => setImgSrc("/images/avatar.png")} />
         </div>
         <div className="center">
-        <div>{user && user.displayName}</div>
-        <div>{user && user.email}</div>
+          <div>{user && user.displayName}</div>
+          <div>{user && user.email}</div>
         </div>
       </div>
       <div className="row">
