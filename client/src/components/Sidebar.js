@@ -4,6 +4,7 @@ import React from "react";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
 import { useState } from "react";
+import ProfileImage from '../avatar.png'
 // import Hero from "./Hero.js";
 
 export default function Sidebar() {
@@ -54,7 +55,7 @@ export default function Sidebar() {
       <div className="row">
         <div className="user-image">
           {/* <img src="/images/avatar.png" alt="user profile" /> */}
-          <img src={imgSrc} onError = {() => setImgSrc("/images/avatar.png")} />
+          <img src={user && user.photoURL || ProfileImage} />
         </div>
         <div className="center">
           <div>{user && user.displayName}</div>
