@@ -1,14 +1,22 @@
-import { Container, Row, Col } from "react-bootstrap";
-import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import LoggedUser from "./components/Home";
-import Home from "./pages/LandingPage";
-import Navbar from "./components/Navbar";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+import { Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { UserAuthContextProvider } from "./context/UserAuthContext";
+
+// Compontent import 
+import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+
+// Pages import 
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Student from "./Student/Student";
+import StudentLogin from "./Student/Login";
+import StudentSignup from "./Student/Signup";
+import Tutor from "./Tutor/Login";
+import TutorLogin from "./Tutor/Login";
+import TutorSignup from "./Tutor/Login";
 
 function App() {
   return (
@@ -18,17 +26,16 @@ function App() {
         <Sidebar />
         <div className="app">
           <Routes>
-            <Route
-              path="/home"
-              element={
-                <ProtectedRoute>
-                  <LoggedUser />
-                </ProtectedRoute>
-              }
-            />
+            <Route path="/student" element={<ProtectedRoute><Student /></ProtectedRoute>} />
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/student/login" element={<StudentLogin />} />
+            <Route path="/student/signup" element={<StudentSignup />} />
+            <Route path="/tutor/signup" element={<StudentSignup />} />
+            <Route path="/tutor/" element={<Tutor />} />
+            <Route path="/tutor/login" element={<TutorLogin />} />
+            <Route path="/tutor/signup" element={<TutorSignup />} />
           </Routes>
         </div>
       </div>

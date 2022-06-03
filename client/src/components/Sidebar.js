@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Home from "./Home";
 import React from "react";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
@@ -26,7 +25,7 @@ export default function Sidebar() {
     },
     {
       title: "My Learning",
-      path: "/home",
+      path: "/student",
     },
     {
       title: "My Cart",
@@ -37,16 +36,16 @@ export default function Sidebar() {
       path: "/",
     },
     {
-      title: "Become Tutor",
-      path: "/",
+      title: "Teach on e-Tutor",
+      path: "/tutor/login",
     },
     {
       title: "Contact Us",
-      path: "/",
+      path: "/contact",
     },
     {
       title: "About Us",
-      path: "/",
+      path: "/about",
     },
   ];
 
