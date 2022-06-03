@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import Home from "./Home";
 import React from "react";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
 import { useState } from "react";
+import ProfileImage from '../avatar.png'
 // import Hero from "./Hero.js";
 
 export default function Sidebar() {
@@ -25,7 +25,7 @@ export default function Sidebar() {
     },
     {
       title: "My Learning",
-      path: "/home",
+      path: "/student",
     },
     {
       title: "My Cart",
@@ -36,16 +36,16 @@ export default function Sidebar() {
       path: "/",
     },
     {
-      title: "Become Tutor",
-      path: "/",
+      title: "Teach on e-Tutor",
+      path: "/tutor/login",
     },
     {
       title: "Contact Us",
-      path: "/",
+      path: "/contact",
     },
     {
       title: "About Us",
-      path: "/",
+      path: "/about",
     },
   ];
 
@@ -54,7 +54,7 @@ export default function Sidebar() {
       <div className="row">
         <div className="user-image">
           {/* <img src="/images/avatar.png" alt="user profile" /> */}
-          <img src={imgSrc} onError = {() => setImgSrc("/images/avatar.png")} />
+          <img src={user && user.photoURL || ProfileImage} />
         </div>
         <div className="center">
           <div>{user && user.displayName}</div>

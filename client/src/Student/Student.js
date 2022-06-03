@@ -1,10 +1,7 @@
 import React from "react";
-import { Button } from "react-bootstrap";
-import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
-// import Hero from "./Hero.js";
 
-const Home = () => {
+const Student = () => {
   const { user } = useUserAuth();
   return (
     <>
@@ -15,4 +12,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Student;

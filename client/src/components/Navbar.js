@@ -5,11 +5,11 @@ export default function Navbar() {
     const Links = [
         {
             "title": "Login",
-            "path": "/login"
+            "path": "/student/login"
         },
         {
             "title": "Signup",
-            "path": "/signup"
+            "path": "/student/signup"
         },
     ]
 

@@ -3,7 +3,7 @@ import React from "react";
 import PopularCourse from "../components/PopularCourse";
 import { useUserAuth } from "../context/UserAuthContext";
 
-export default function LandingPage() {
+export default function Home() {
   const { user } = useUserAuth();
   return (
     <div className="home page">
