@@ -14,7 +14,7 @@ import Contact from "./pages/Contact";
 import Student from "./Student/Student";
 import StudentLogin from "./Student/Login";
 import StudentSignup from "./Student/Signup";
-import Tutor from "./Tutor/Login";
+import Tutor from "./Tutor/Tutor";
 import TutorLogin from "./Tutor/Login";
 import TutorSignup from "./Tutor/Login";
 

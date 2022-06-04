@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import GoogleButton from "react-google-button";
+import { Navigate } from "react-router-dom";
 import { useUserAuth } from "../context/UserAuthContext";
 
 const Login = () => {
@@ -11,6 +12,13 @@ const Login = () => {
   const [error, setError] = useState("");
   const { logIn, googleSignIn } = useUserAuth();
   const navigate = useNavigate();
+
+  const { user } = useUserAuth();
+
+  console.log("Check user in Private: ", user);
+  if (user) {
+    return <Navigate to="/tutor" />;
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
