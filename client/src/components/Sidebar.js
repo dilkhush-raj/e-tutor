@@ -3,21 +3,23 @@ import React from "react";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
 import { useState } from "react";
-import ProfileImage from '../avatar.png'
-// import Hero from "./Hero.js";
+import ProfileImage from "../avatar.png";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 
 export default function Sidebar() {
-    const { logOut, user } = useUserAuth();
-    const [imgSrc, setImgSrc] = useState("/images/avatar.png");
-  const navigate = useNavigate();
-  const handleLogout = async () => {
-    try {
-      await logOut();
-      navigate("/");
-    } catch (error) {
-      console.log(error.message);
+  
+  const [sidebar, setSidebar] = useState(false);
+  const ShowSidebar = () => setSidebar(!sidebar);
+
+  const { user } = useUserAuth();
+
+  function CheckUser(user){
+    if (user) {
+      return true;
     }
-  };
+  }
+
   const Links = [
     {
       title: "Home",
@@ -27,14 +29,14 @@ export default function Sidebar() {
       title: "My Learning",
       path: "/student",
     },
-    {
-      title: "My Cart",
-      path: "/",
-    },
-    {
-      title: "Account Settings",
-      path: "/",
-    },
+    // {
+    //   title: "My Cart",
+    //   path: "/",
+    // },
+    // {
+    //   title: "Account Settings",
+    //   path: "/",
+    // },
     {
       title: "Teach on e-Tutor",
       path: "/tutor/login",
@@ -50,21 +52,24 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className="sidebar">
+    <>
+     <div id="menu-btn" className="menu-button" onClick={ShowSidebar} >
+        =
+      </div>
+    <div className={sidebar ? "sidebar active-sidebar" : "sidebar"}  onClick={ShowSidebar}>
+     
       <div className="row">
         <div className="user-image">
           {/* <img src="/images/avatar.png" alt="user profile" /> */}
-          <img src={user && user.photoURL || ProfileImage} />
+          <img src={(user && user.photoURL) || ProfileImage} />
         </div>
         <div className="center">
           <div>{user && user.displayName}</div>
           <div>{user && user.email}</div>
         </div>
       </div>
-      <div className="row">
-        <div className="center btn" onClick={handleLogout}>
-          Log Out
-        </div>
+      <div className="login-btn">
+        {CheckUser(user) ? <LogoutButton/> : <LoginButton />}
       </div>
       <ul className="row">
         {Links.map((item, index) => {
@@ -76,5 +81,6 @@ export default function Sidebar() {
         })}
       </ul>
     </div>
+    </>
   );
 }

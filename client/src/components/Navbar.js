@@ -3,14 +3,6 @@ import {Link} from 'react-router-dom'
 export default function Navbar() {
 
     const Links = [
-        {
-            "title": "Login",
-            "path": "/student/login"
-        },
-        {
-            "title": "Signup",
-            "path": "/student/signup"
-        },
     ]
 
     return (
@@ -28,6 +20,7 @@ export default function Navbar() {
               );
             })}
         </ul>
+        
       </div>
     );
   }

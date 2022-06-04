@@ -6,46 +6,43 @@
   scrollbar-color: transparent transparent;
 }
 
-*:hover {
+.HorizontalScroll {
   scrollbar-color: #ccc #eee;
 }
 
-*::-webkit-scrollbar {
+.HorizontalScroll::-webkit-scrollbar {
   width: 0.5rem;
   height: 0.5rem;
 }
 
-*::-webkit-scrollbar-track {
+.HorizontalScroll::-webkit-scrollbar-track {
   margin: 1rem;
   background: center / 100% 25% no-repeat
     linear-gradient(0deg, transparent, transparent);
   border-radius: 1rem;
 }
-*:hover::-webkit-scrollbar-track {
+.HorizontalScroll::-webkit-scrollbar-track {
   background-image: linear-gradient(0deg, lightgray, lightgray);
 }
-*::-webkit-scrollbar-track:hover {
-  background-image: linear-gradient(0deg, silver, silver);
-}
 
-*::-webkit-scrollbar-thumb {
+.HorizontalScroll::-webkit-scrollbar-thumb {
   background: transparent;
   border-radius: 1rem;
 }
-*:hover::-webkit-scrollbar-thumb {
-  background: lightgrey;
-}
-*::-webkit-scrollbar-thumb:hover {
-  background: silver;
+.HorizontalScroll::-webkit-scrollbar-thumb {
+  background: #0af;
 }
 
 :root{
-  --primary-bg: rgba(42, 42, 42, 0.2);
-  --primary-text: #eee;
+  --primary-bg: #fff;
+  --secondary-bg: rgb(235, 235, 235);
+  --primary-text: #222;
+  --gutter: 1rem;
 }
 
 body{
   background-image: url(/public/images/bg.png);
+  background-color: var(--secondary-bg);
   color: var(--primary-text);
 }
 
@@ -101,16 +98,21 @@ body{
 
 .hero{
   display: flex;
-  background-image: linear-gradient(315deg, #8053ac38 0%, #647dee35 74%);
+  background-image: linear-gradient(315deg, #8053ac 0%, #647dee 74%);
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
 }
 
 .hero .image{
   width: 50%;
+  min-width: 250px;
 }
 
 .hero .content{
   width: 50%;
   display: flex;
+  min-width: 250px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -214,29 +216,35 @@ a{
 
 .title{
   padding: 1rem;
+  margin: 0;
 }
 
 .popular-course{
-  padding: 1rem;
   width: 100%;
 }
 
-:root {
-  --gutter: 1rem;
+.login-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.login-btn a{
+  padding: 0;
+}
+.login-btn a{
+  background-color: none;
+}
 
 .HorizontalScroll {
   list-style: none;
-  padding-left: 0;
   display: flex;
   /* margin: 0 calc(-1 * var(--gutter));
   margin-bottom: calc(var(--gutter) * 0.5 - 0.5rem * 0.5);
   padding-bottom: calc(var(--gutter) * 0.5 - 0.5rem * 0.5); */
   overflow-x: auto;
-  scroll-snap-type: x proximity;
   width: 100%;
-  padding: 1rem;
+  padding-bottom: 1rem;
 }
 
 
@@ -251,23 +259,6 @@ a{
   scroll-snap-align: center;
 }
 
-.NoScrollbar {
-  scrollbar-width: none;
-  /* margin-bottom: 0; */
-  /* padding-bottom: 0; */
-}
-.NoScrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.Block {
-  margin-top: 0;
-  margin-bottom: var(--gutter);
-}
-.Block:last-child {
-  margin-bottom: 0;
-}
-
 .Item {
   background: lightseagreen;
   border-radius: 1rem;
@@ -276,4 +267,37 @@ a{
 }
 .Item.HorizontalScroll_Item {
   background: cornflowerblue;
+}
+
+.menu-button{
+  position: fixed;
+  top: 25px;
+  right: 40px;
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .sidebar {
+    position: fixed;
+    left: -100%;
+  }
+  .app{
+  grid-column: 1/3;
+  }
+  .Item {
+    min-width: 200px;
+    height: 150px;
+  }
+  .menu-button{
+    display: block;
+  }
+  
+}
+
+.active-sidebar{
+  left: 0%;
+  width: 280px;
+  top: 0;
+  height: 100%;
+  transition: .5s ease-in-out;
 }
