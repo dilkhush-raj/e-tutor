@@ -50,7 +50,7 @@ const Tutor = () => {
       <div>
 
         <h3>Create New Course</h3>
-        <form onSubmit={onSubmit}>
+        {/* <form onSubmit={onSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input
@@ -122,7 +122,7 @@ const Tutor = () => {
               className="btn btn-primary"
             />
           </div>
-        </form>
+        </form> */}
       </div>
     </>
   );
