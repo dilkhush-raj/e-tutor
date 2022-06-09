@@ -5,8 +5,8 @@ import AllCourse from "../components/AllCourse"
 export default function Tutor() {
  const [form, setForm] = useState({
    name: "",
-   position: "",
-   thumbnail: "",
+   discription: "",
+   video: "",
  });
  const navigate = useNavigate();
  
@@ -36,13 +36,13 @@ async function onSubmit(e) {
       return;
     });
   
-    setForm({ name: "", position: "", thumbnail: "" });
+    setForm({ name: "", discription: "", video: "" });
   }
  
  // This following section will display the form that takes the input from the user.
  return (
    <div className="page">
-     <h3>Create New Course</h3>
+     <h3 className="p1">Create New Course</h3>
      <form onSubmit={onSubmit} className="create-course">
        <div className="form-group">
          <label htmlFor="name">Name</label>
@@ -55,23 +55,23 @@ async function onSubmit(e) {
          />
        </div>
        <div className="form-group">
-         <label htmlFor="position">Discription</label>
+         <label htmlFor="discription">Discription</label>
          <input
            type="text"
            className="form-control"
-           id="position"
-           value={form.position}
-           onChange={(e) => updateForm({ position: e.target.value })}
+           id="discription"
+           value={form.discription}
+           onChange={(e) => updateForm({ discription: e.target.value })}
          />
        </div>
        <div className="form-group">
-         <label htmlFor="position">Thumbnail URL</label>
+         <label htmlFor="position">Enter Embed Video URL</label>
          <input
            type="text"
            className="form-control"
-           id="position"
-           value={form.thumbnail}
-           onChange={(e) => updateForm({ thumbnail: e.target.value })}
+           id="video"
+           value={form.video}
+           onChange={(e) => updateForm({ video: e.target.value })}
          />
        </div>
        <div className="form-group">
@@ -82,7 +82,6 @@ async function onSubmit(e) {
          />
        </div>
      </form>
-     <AllCourse />
    </div>
  );
 }
