@@ -103,6 +103,7 @@ body{
   align-items: center;
   justify-content: center;
   flex-wrap: wrap-reverse;
+  min-height: calc(100vh - 80px);
 }
 
 .hero .image{
@@ -306,8 +307,16 @@ a{
   transition: .5s ease-in-out;
 }
 
+.card-wrap{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .card{
-  width: 300px;
+  min-width: 280px;
+  max-width: 700px;
+  height: max-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -325,6 +334,9 @@ a{
   width: 100%;
 }
 
+iframe{
+  aspect-ratio: 16/9;
+}
 .all-course{
   display: flex;
   flex-wrap: wrap;
@@ -334,4 +346,8 @@ a{
   max-width: 500px;
   padding: 1rem;
   margin: 0 auto;
+}
+
+.p1{
+  padding: 1rem;
 }
