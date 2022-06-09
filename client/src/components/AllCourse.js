@@ -7,8 +7,7 @@ const Record = (props) => (
        <div className="img"><img src={props.record.thumbnail} alt="" /></div>
        <div><h4 className="name">{props.record.name}</h4></div>
        <div className="discription">{props.record.position}</div>
-       {console.log(props.record.thumbnail)}
- </div>
+ </div> 
  </>
 );
  

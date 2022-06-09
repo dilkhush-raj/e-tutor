@@ -2,6 +2,7 @@
 import React from "react";
 import PopularCourse from "../components/PopularCourse";
 import { useUserAuth } from "../context/UserAuthContext";
+import AllCourse from "../components/AllCourse";
 
 export default function Home() {
   const { user } = useUserAuth();
@@ -19,10 +20,7 @@ export default function Home() {
           <img src="/images/hero.svg" alt="Hero-image" />
         </div>
       </div>
-      <h2 className="title">Popular Courses on e-Tutor</h2>
-      <PopularCourse />
-      <h2 className="title">Featured Courses on e-Tutor</h2>
-      <PopularCourse />
+        <AllCourse />
     </div>
   );
 }
