@@ -21,7 +21,7 @@ export default function Home() {
           </h2>
           <p>We have the best tutor to teach you.</p>
           <div className="cta">
-        {CheckUser(user) ? <div><Link to="/student" className="btn">Let's Start Learning</Link></div> : <div><Link to="/student/login/" className="btn">Login</Link><Link to="/student/signup" className="btn">Signup</Link><Link to="/tutor/login" className="btn">Tutor Login</Link></div>}
+        {CheckUser(user) ? <div><Link to="/student" className="btn">Let's Start Learning</Link></div> : <div><Link to="/student/" className="btn">Student</Link><Link to="/tutor/" className="btn">Tutor</Link></div>}
         </div>
         </div>
         <div className="image">
