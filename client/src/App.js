@@ -16,7 +16,7 @@ import StudentLogin from "./Student/Login";
 import StudentSignup from "./Student/Signup";
 import Tutor from "./Tutor/Tutor";
 import TutorLogin from "./Tutor/Login";
-import TutorSignup from "./Tutor/Login";
+import TutorSignup from "./Tutor/Signup";
 
 function App() {
   return (
@@ -32,7 +32,6 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/student/login" element={<StudentLogin />} />
             <Route path="/student/signup" element={<StudentSignup />} />
-            <Route path="/tutor/signup" element={<StudentSignup />} />
             <Route path="/tutor/" element={<Tutor />} />
             <Route path="/tutor/login" element={<TutorLogin />} />
             <Route path="/tutor/signup" element={<TutorSignup />} />

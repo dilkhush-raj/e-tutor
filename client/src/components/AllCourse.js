@@ -4,10 +4,19 @@ import { Link } from "react-router-dom";
 const Record = (props) => (
   <div className="card-wrap">
     <div className="card">
-      <div className="img">{props.record.video}</div>
-      <div>
-        <h4 className="name">{props.record.name}</h4>
+      <div className="img">
+        <iframe
+          width="560"
+          height="315"
+          src={props.record.video}
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </div>
+
+      <h4 className="name">{props.record.name}</h4>
       <div className="discription">{props.record.discription}</div>
     </div>
   </div>
