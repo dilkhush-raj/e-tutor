@@ -6,6 +6,7 @@ import { UserAuthContextProvider } from "./context/UserAuthContext";
 // Compontent import 
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+import EditCourse from "./components/EditCourse";
 
 // Pages import 
 import Home from "./pages/Home";
@@ -35,6 +36,7 @@ function App() {
             <Route path="/tutor/" element={<Tutor />} />
             <Route path="/tutor/login" element={<TutorLogin />} />
             <Route path="/tutor/signup" element={<TutorSignup />} />
+            <Route path="/tutor/edit/:id" element={<EditCourse />} />
           </Routes>
         </div>
       </div>

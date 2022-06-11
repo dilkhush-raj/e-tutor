@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-import AllCourse from "../components/AllCourse"
+import AllCourseTutor from "../components/AllCourseTutor"
  
 export default function Tutor() {
  const [form, setForm] = useState({
@@ -37,6 +37,7 @@ async function onSubmit(e) {
     });
   
     setForm({ name: "", discription: "", video: "" });
+    navigate("/tutor")
   }
  
  // This following section will display the form that takes the input from the user.
@@ -82,6 +83,9 @@ async function onSubmit(e) {
          />
        </div>
      </form>
+
+     <h3 className="p1">All Created Course</h3>
+     <AllCourseTutor />
    </div>
  );
 }
