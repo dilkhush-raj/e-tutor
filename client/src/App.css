@@ -313,7 +313,7 @@ a{
 
 }
 
-.card{
+/* .card{
   max-width: 500px;
   height: max-content;
   display: flex;
@@ -324,7 +324,7 @@ a{
   padding: 1rem;
   background-color: var(--primary-bg);
   flex-wrap: wrap;
-}
+} */
 
 .card .img{
   width: 100%;
