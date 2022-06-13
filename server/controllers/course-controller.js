@@ -42,7 +42,7 @@ export const addCourse = async (req, res, next) => {
     await session.commitTransaction();
   } catch (err) {
     console.log(err);
-    return  res.status(500).json({message: err})
+    return res.status(500).json({ message: err });
   }
   return res.status(200).json({ course });
 };
@@ -85,7 +85,9 @@ export const deleteCourse = async (req, res, next) => {
 
   let course;
   try {
-    course = await Course.findByIdAndRemove(id);
+    course = await Course.findByIdAndRemove(id).populate("user");
+    await course.user.courses.pull(course);
+    await course.user.save();
   } catch (err) {
     console.log(err);
   }
@@ -93,4 +95,18 @@ export const deleteCourse = async (req, res, next) => {
     return res.status(500).json({ message: "Unable to delete" });
   }
   return res.status(200).json({ message: "Successfully Deleted" });
+};
+
+export const getByUserId = async (req, res, next) => {
+  const userId = req.params.id;
+  let userCourses;
+  try {
+    userCourses = await User.findById(userId).populate("courses");
+  } catch (err) {
+    return console.log(err);
+  }
+  if (!userCourses) {
+    return res.status(404).json({ message: "No course found" });
+  }
+  return res.status(200).json({ courses: userCourses });
 };
