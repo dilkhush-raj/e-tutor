@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
-import router from "./routes/api/user-routes.js";
+import courseRouter from "./routes/course-routes.js";
+import router from "./routes/user-routes.js";
 // const cors = require("cors");
 
 
@@ -13,6 +14,7 @@ const db =
 app.use(express.json());
 
 app.use("/api/user", router);
+app.use("/api/course", courseRouter)
 mongoose
   .connect(db)
   .then(() => app.listen(5000))
