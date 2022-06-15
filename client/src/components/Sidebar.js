@@ -26,20 +26,20 @@ export default function Sidebar() {
       path: "/",
     },
     {
-      title: "My Learning",
-      path: "/student",
+      title: "All Courses",
+      path: "/courses",
     },
-    // {
-    //   title: "My Cart",
-    //   path: "/",
-    // },
-    // {
-    //   title: "Account Settings",
-    //   path: "/",
-    // },
     {
-      title: "Teach on e-Tutor",
-      path: "/tutor/login",
+      title: "My Learning",
+      path: "/learning",
+    },
+    {
+      title: "My Cart",
+      path: "/cart",
+    },
+    {
+      title: "Account Settings",
+      path: "/settings",
     },
     {
       title: "Contact Us",

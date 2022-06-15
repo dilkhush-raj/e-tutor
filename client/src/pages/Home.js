@@ -3,7 +3,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useUserAuth } from "../context/UserAuthContext";
 import Card from "../components/Card";
-import Typewriter from 'typewriter-effect';
+import Typewriter from "typewriter-effect";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const { user } = useUserAuth();
@@ -16,14 +17,18 @@ export default function Home() {
   return (
     <div className="home page">
       <div className="hero">
+        <h1 className="banner-heading1">Start Learning From </h1>
+        <span className="banner-heading2">The World's Best Teachers</span>
+
         <div className="content">
-          <h1>Welcome to e-Tutor</h1>
-          <h2>
-            <div>{user && user.displayName}</div>
-          </h2>
+          <p>
+            Start, switch, or advance your career with more than 5,000 courses,
+            Professional Certificates, and degrees from world-class universities
+            and companies.
+          </p>
           <Typewriter
             options={{
-              strings: ["Hello", "World"],
+              strings: ["Learn From Anywhere", "Learn Without Limits"],
               autoStart: true,
               loop: true,
             }}
@@ -31,8 +36,8 @@ export default function Home() {
           <div className="cta">
             {CheckUser(user) ? (
               <div>
-                <Link to="/student" className="btn">
-                  Let's Start Learning
+                <Link to="/student" className="link-1">
+                  Explore all courses
                 </Link>
               </div>
             ) : (
@@ -47,11 +52,17 @@ export default function Home() {
             )}
           </div>
         </div>
-        <div className="image">
+        {/* <div className="image">
           <img src="/images/hero.svg" alt="Hero-image" />
-        </div>
+        </div> */}
       </div>
-      <Card />
+      <div className="flex">
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div>
+      <Footer />
     </div>
   );
 }
