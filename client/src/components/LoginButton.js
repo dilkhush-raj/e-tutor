@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const LoginButton = () => {
   return (
     <>
-        <Link to="/student/login">
+        <Link to="/login">
           <div className="center btn">Log In</div>
         </Link>
-        <Link to="/student/signup">
+        <Link to="/signup">
           <div className="center btn">Sign Up</div>
         </Link>
     </>

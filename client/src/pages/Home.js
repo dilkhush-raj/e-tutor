@@ -42,11 +42,11 @@ export default function Home() {
               </div>
             ) : (
               <div>
-                <Link to="/student/" className="btn">
-                  Student
+                <Link to="/login" className="btn">
+                  Login
                 </Link>
-                <Link to="/tutor/" className="btn">
-                  Tutor
+                <Link to="/teacher/" className="btn">
+                  Teacher
                 </Link>
               </div>
             )}

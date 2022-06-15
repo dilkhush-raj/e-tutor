@@ -1,86 +1,78 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Form, Alert } from "react-bootstrap";
-import { Button } from "react-bootstrap";
-import GoogleButton from "react-google-button";
-import { Navigate } from "react-router-dom";
-import { useUserAuth } from "../context/UserAuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  // const { name, email, password } = req.body;
+
+  let navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const { logIn, googleSignIn } = useUserAuth();
-  const navigate = useNavigate();
 
-  const { user } = useUserAuth();
-
-  console.log("Check user in Private: ", user);
-  if (user) {
-    return <Navigate to="/tutor" />;
-  }
-
-  const handleSubmit = async (e) => {
+  const LoginUser = async (e) => {
     e.preventDefault();
-    setError("");
-    try {
-      await logIn(email, password);
-      navigate("/home");
-    } catch (err) {
-      setError(err.message);
-    }
-  };
 
-  const handleGoogleSignIn = async (e) => {
-    e.preventDefault();
-    try {
-      await googleSignIn();
-      navigate("/tutor");
-    } catch (error) {
-      console.log(error.message);
+    const res = await fetch("http://localhost:5000/api/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+
+    const data = res.json();
+
+    if(res.status === 400 || !data) {
+      window.alert("Invalid Credentials");
+    } else {
+      window.alert("Login Successful")
     }
   };
 
   return (
     <>
-      <div className="p-4 box">
-        <h2 className="mb-3">Tutor Login</h2>
-        {error && <Alert variant="danger">{error}</Alert>}
-        <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control
+      <section className="signup">
+        <form method="POST" className="register">
+          <div className="form-group">
+            <label htmlFor="email"></label>
+            <input
               type="email"
-              placeholder="Email address"
+              name="email"
+              id="email"
+              autoComplete="off"
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter Email"
             />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-
-          <div className="d-grid gap-2">
-            <Button variant="primary" type="Submit">
-              Log In
-            </Button>
           </div>
-        </Form>
-        <hr />
-        <div>
-          <GoogleButton
-            className="g-btn"
-            type="dark"
-            onClick={handleGoogleSignIn}
-          />
-        </div>
-      </div>
-      <div className="p-4 box mt-3 text-center">
-        Don't have an account? <Link to="/tutor/signup">Sign up</Link>
-      </div>
+
+          <div className="form-group">
+            <label htmlFor="password"></label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              autoComplete="off"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter Password"
+            />
+          </div>
+
+          <div>
+            <input
+              type="submit"
+              name="signup"
+              id="signup"
+              value="register"
+              onClick={LoginUser}
+            />
+          </div>
+        </form>
+      </section>
     </>
   );
 };
