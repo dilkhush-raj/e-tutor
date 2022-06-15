@@ -27,6 +27,7 @@
 
 .flex{
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   width: 100%;
 }
@@ -238,11 +239,8 @@ a{
   margin: 0;
 }
 
-.row a{
-  padding: .5rem 2rem;
-}
 
-.row a:hover{
+.row .sidebar-link:hover{
   background-color: #efefef;
   color: black;
 }
@@ -407,4 +405,28 @@ iframe{
   padding: 1rem;
   padding-top: 2rem;
   text-align: center;
+}
+
+.sidebar-link li{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 1rem;
+  padding: .5rem 2rem;
+}
+
+.logout-btn{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sidebar-hr{
+  border: none;
+  border-bottom: 2px solid #333;
+  border-style: dashed;
+  width: 90%;
+  margin: 1rem auto 0;
 }

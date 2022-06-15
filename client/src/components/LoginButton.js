@@ -5,10 +5,10 @@ const LoginButton = () => {
   return (
     <>
         <Link to="/login">
-          <div className="center btn">Log In</div>
-        </Link>
+          Login
+        </Link> &nbsp; &nbsp; &nbsp; &nbsp;
         <Link to="/signup">
-          <div className="center btn">Sign Up</div>
+          Signup
         </Link>
     </>
   );

@@ -36,7 +36,7 @@ export default function Home() {
           <div className="cta">
             {CheckUser(user) ? (
               <div>
-                <Link to="/student" className="link-1">
+                <Link to="/courses" className="link-1">
                   Explore all courses
                 </Link>
               </div>
@@ -46,7 +46,7 @@ export default function Home() {
                   Login
                 </Link>
                 <Link to="/teacher/" className="btn">
-                  Teacher
+                  Teach
                 </Link>
               </div>
             )}
@@ -57,8 +57,6 @@ export default function Home() {
         </div> */}
       </div>
       <div className="flex">
-        <Card />
-        <Card />
         <Card />
         <Card />
       </div>

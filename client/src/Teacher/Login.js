@@ -25,10 +25,14 @@ const Login = () => {
 
     const data = res.json();
 
-    if(res.status === 400 || !data) {
+
+    if(res.status === 404 || !data) {
       window.alert("Invalid Credentials");
     } else {
       window.alert("Login Successful")
+      navigate("/teacher/");
+      
+      // .then((data) => localStorage.setItem("userId", data.user._id))
     }
   };
 

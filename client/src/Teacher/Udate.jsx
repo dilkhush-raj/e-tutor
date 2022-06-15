@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const CreateCourse = () => {
+const UpdateCourse = () => {
   //   title, description, image, user
 
   const [course, setCourse] = useState({
@@ -11,7 +11,6 @@ const CreateCourse = () => {
     time: "",
     price: "",
     video: "",
-    user: "",
   });
 
   let name, value;
@@ -27,25 +26,26 @@ const CreateCourse = () => {
   const PostData = async (e) => {
     e.preventDefault();
 
-    const { title, description, image, level, time, price, video, user } =
-      course;
+    const { title, description, image, level, time, price, video } = course;
 
-    const res = await fetch("http://localhost:5000/api/course/add", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title,
-        description,
-        image,
-        level,
-        time,
-        price,
-        video,
-        user,
-      }),
-    });
+    const res = await fetch(
+      "http://localhost:5000/api/course/update/62a987335a2e18a5a49531bb",
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title,
+          description,
+          image,
+          level,
+          time,
+          price,
+          video,
+        }),
+      }
+    );
     const data = await res.json();
 
     if (data.status === 422 || !data) {
@@ -55,10 +55,12 @@ const CreateCourse = () => {
     }
   };
 
+
+
   return (
     <>
       <section className="signup">
-        <form method="POST" className="register">
+        <form method="PUT" className="register">
           <div className="form-group">
             <label htmlFor="name"></label>
             <input
@@ -145,18 +147,6 @@ const CreateCourse = () => {
               placeholder="Enter Thumbnail Url"
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="user"></label>
-            <input
-              type="text"
-              name="user"
-              id="image"
-              autoComplete="off"
-              value={course.user}
-              onChange={handleInputs}
-              placeholder="Enter User Id"
-            />
-          </div>
 
           <div>
             <input
@@ -173,4 +163,4 @@ const CreateCourse = () => {
   );
 };
 
-export default CreateCourse;
+export default UpdateCourse;

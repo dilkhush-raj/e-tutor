@@ -16,7 +16,8 @@ export const getAllCourse = async (req, res, next) => {
 };
 
 export const addCourse = async (req, res, next) => {
-  const { title, description, image, user } = req.body;
+  const { title, description, image, level, time, price, video, user } =
+    req.body;
 
   let exitingUser;
   try {
@@ -31,6 +32,10 @@ export const addCourse = async (req, res, next) => {
     title,
     description,
     image,
+    level,
+    time,
+    price,
+    video,
     user,
   });
   try {
@@ -48,7 +53,7 @@ export const addCourse = async (req, res, next) => {
 };
 
 export const updateCourse = async (req, res, next) => {
-  const { title, description, image } = req.body;
+  const { title, description, image, level, time, price, video } = req.body;
   const courseId = req.params.id;
   let course;
   try {
@@ -56,6 +61,10 @@ export const updateCourse = async (req, res, next) => {
       title,
       description,
       image,
+      level,
+      time,
+      price,
+      video,
     });
   } catch (err) {
     return console.log(err);

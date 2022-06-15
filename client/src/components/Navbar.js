@@ -1,12 +1,18 @@
 import { Link } from "react-router-dom";
+import { IoMdCart } from "react-icons/io";
+import { MdNotifications } from "react-icons/md";
 
 export default function Navbar() {
-  const Links = [{ title: "Teacher Login", path: "/teacher" }];
+  const Links = [
+    { title: "Teach", path: "/teacher" },
+    { title: <IoMdCart />, path: "/cart" },
+    { title: <MdNotifications />, path: "/" },
+  ];
 
   return (
     <div className="navbar">
       <Link to="/">
-        <h1 className="nav-logo">e-School</h1>
+        <h1 className="nav-logo">e-Learn</h1>
       </Link>
       <ul className="nav-link">
         {Links.map((item, index) => {

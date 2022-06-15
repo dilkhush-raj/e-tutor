@@ -15,6 +15,22 @@ const courseSchema = new Schema({
     type: String,
     required: true,
   },
+  level:{
+    type: String,
+    required: true,
+  },
+  time:{
+    type: Number,
+    required: true,
+  },
+  price:{
+    type: Number,
+    required: true,
+  },
+  video:{
+    type: String,
+    required: true,
+  },
   user: {
     type: mongoose.Types.ObjectId,
     ref: "User",
