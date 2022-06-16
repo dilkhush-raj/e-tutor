@@ -2,7 +2,9 @@ export default function Learning() {
 
     return (
       <>
-      Comming Soon!!!
+      <div className="page p-2">
+        Purchase Some Course First
+      </div>
       </>
     );
   }

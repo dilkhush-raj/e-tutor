@@ -71,7 +71,7 @@ const Login = () => {
               type="submit"
               name="signup"
               id="signup"
-              value="register"
+              value="Login"
               onClick={LoginUser}
             />
           </div>

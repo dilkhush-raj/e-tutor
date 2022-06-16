@@ -27,7 +27,7 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <Link to="/">
-        <h1 className="nav-logo">e-School</h1>
+        <h1 className="nav-logo">e-Learn</h1>
       </Link>
       <ul className="nav-link">
         {Links.map((item, index) => {

@@ -430,3 +430,48 @@ iframe{
   width: 90%;
   margin: 1rem auto 0;
 }
+
+.p-2{
+  padding: 2rem;
+}
+
+.course-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.course-grid-4{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.t-flex{
+  display: flex;
+  padding: 2rem;
+  margin: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 1px 1px 3px #bbb;
+}
+
+.btn-2{
+  padding: 1rem;
+  background-color: #0af;
+}
+
+.create-course{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.course-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}

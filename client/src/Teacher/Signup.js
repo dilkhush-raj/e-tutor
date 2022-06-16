@@ -96,7 +96,7 @@ const Signup = () => {
               type="submit"
               name="signup"
               id="signup"
-              value="register"
+              value="Signup"
               onClick={PostData}
             />
           </div>

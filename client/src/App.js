@@ -17,6 +17,7 @@ import Cart from "./pages/Cart";
 import Settings from "./pages/Settings";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import Course from "./pages/Course";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/learning/:id" element={<Course />} />
           </Routes>
         </div>
       </div>
