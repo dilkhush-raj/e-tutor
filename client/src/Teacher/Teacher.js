@@ -11,7 +11,7 @@ import UpdateCourse from "./Udate";
 
 export default function Teacher() {
   return (
-    <div className="page">
+    <div >
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -19,7 +19,7 @@ export default function Teacher() {
         <Route path="/login" element={<Login />} />
         <Route path="/courses/" element={<Courses />} />
         <Route path="/courses/add" element={<CreateCourse />} />
-        <Route path="/courses/update" element={<UpdateCourse />} />
+        <Route path="/courses/update/:id" element={<UpdateCourse />} />
       </Routes>
     </div>
   );

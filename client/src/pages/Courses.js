@@ -33,9 +33,9 @@ class Courses extends React.Component {
     const { DataisLoaded, items } = this.state;
     if (!DataisLoaded)
       return (
-        <div>
-          <h1> Pleses wait some time.... </h1>{" "}
-        </div>
+        <div className="loader">
+        <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+      </div>
       );
 
     return (

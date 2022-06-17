@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 const CreateCourse = () => {
   //   title, description, image, user
+  let navigate = useNavigate();
 
   const [course, setCourse] = useState({
     title: "",
@@ -11,7 +13,7 @@ const CreateCourse = () => {
     time: "",
     price: "",
     video: "",
-    user: "",
+    user: "62aa0246021c9967041f94c9",
   });
 
   let name, value;
@@ -52,6 +54,7 @@ const CreateCourse = () => {
       window.alert("Signup Failed");
     } else {
       window.alert("Course Added Successful");
+      navigate("/teacher/courses");
     }
   };
 
@@ -60,7 +63,7 @@ const CreateCourse = () => {
       <section className="create-course">
         <form method="POST" className="course-form">
           <div className="form-group">
-            <label htmlFor="name"></label>
+            <label htmlFor="name">Course Title</label>
             <input
               type="text"
               name="title"
@@ -68,36 +71,49 @@ const CreateCourse = () => {
               autoComplete="off"
               value={course.title}
               onChange={handleInputs}
-              placeholder="Enter Name"
+              placeholder="Web Development Bootcamp"
+              required="required"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="image">Couse Thumbnail Image URL</label>
+            <input
+              type="url"
+              name="image"
+              id="image"
+              autoComplete="off"
+              value={course.image}
+              onChange={handleInputs}
+              placeholder="Enter Image URL"
+              required
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="description"></label>
-            <input
+            <label htmlFor="description">Course Description</label>
+            <textarea
               type="text"
               name="description"
               id="description"
               autoComplete="off"
               value={course.description}
               onChange={handleInputs}
-              placeholder="Enter Course Description"
+              placeholder="About Course"
+              required="required"
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="level"></label>
-            <input
-              type="text"
-              name="level"
-              id="level"
-              autoComplete="off"
-              value={course.level}
-              onChange={handleInputs}
-              placeholder="Enter Level of Course"
-            />
+          <div className="form-group form-group-select">
+            <label htmlFor="level">Select Course Level</label>
+            <select value={course.level} onChange={handleInputs} name="level">
+              <option className="option" value="none" selected hidden>Select an Option</option>
+              <option className="option" value="Beginner">Beginner</option>
+              <option className="option" value="Intermediate">Intermediate</option>
+              <option className="option" value="Advanced">Advanced</option>
+            </select>
           </div>
+
           <div className="form-group">
-            <label htmlFor="time"></label>
+            <label htmlFor="time">Course Duration</label>
             <input
               type="number"
               name="time"
@@ -105,11 +121,12 @@ const CreateCourse = () => {
               autoComplete="off"
               value={course.time}
               onChange={handleInputs}
-              placeholder="Enter Course Time in Hours"
+              placeholder="Enter Course Duration in hours"
+              required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="price"></label>
+            <label htmlFor="price">Set Course Price</label>
             <input
               type="number"
               name="price"
@@ -117,35 +134,25 @@ const CreateCourse = () => {
               autoComplete="off"
               value={course.price}
               onChange={handleInputs}
-              placeholder="Enter Course Price"
+              placeholder="Enter Ammount in Rupees"
+              required
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="Video"></label>
+            <label htmlFor="Video">Enter Video ID</label>
             <input
-              type="text"
+              type="url"
               name="video"
               id="video"
               autoComplete="off"
               value={course.video}
               onChange={handleInputs}
-              placeholder="Enter Video Link"
+              placeholder="All characters after last slash. Eg. - qoeLC9Yeo6s from url- https://youtu.be/qoeLC9Yeo6s"
+              required
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="image"></label>
-            <input
-              type="text"
-              name="image"
-              id="image"
-              autoComplete="off"
-              value={course.image}
-              onChange={handleInputs}
-              placeholder="Enter Thumbnail Url"
-            />
-          </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label htmlFor="user"></label>
             <input
               type="text"
@@ -156,7 +163,7 @@ const CreateCourse = () => {
               onChange={handleInputs}
               placeholder="Enter User Id"
             />
-          </div>
+          </div> */}
 
           <div>
             <input
@@ -165,6 +172,7 @@ const CreateCourse = () => {
               id="signup"
               value="Upload Course"
               onClick={PostData}
+              className="btn"
             />
           </div>
         </form>

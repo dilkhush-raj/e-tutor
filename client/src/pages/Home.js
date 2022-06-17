@@ -57,13 +57,14 @@ export default function Home() {
         </div> */}
       </div>
       <div className="p-2">
-      <h2>About Us</h2>
+      <br /><br /><h2>Lorem Ipsum</h2>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quasi accusamus molestias beatae distinctio accusantium perferendis fugit quaerat alias ad.
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat ratione deleniti, quod, in magni, laudantium alias ut nam eius corporis iste. Itaque vero labore dolores!
-      <h2>About Teachers</h2>
+      <br /><br /><h2>Lorem Ipsum</h2>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae accusamus totam corporis nulla nemo? Illo nihil quod, laboriosam non, assumenda, optio ab laudantium culpa quo iure perspiciatis voluptatem qui obcaecati vero quos quia consectetur! Sequi?
-      <h2>About Our Courses</h2>
+      <br /><br /><h2>Lorem Ipsum</h2>
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod ab enim tenetur voluptatibus, nesciunt adipisci et amet fugiat hic incidunt alias molestias dicta nisi at totam esse natus voluptate, assumenda explicabo asperiores perspiciatis voluptates. Ad, harum. Possimus et sit at!
+      <br /><br />
       </div>
       <Footer />
     </div>

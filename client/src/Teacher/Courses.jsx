@@ -8,6 +8,7 @@ import { TiStarHalfOutline, TiStarFullOutline } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
 import { RiEdit2Fill } from "react-icons/ri";
+import { useParams, useNavigate  } from "react-router-dom";
 
 class Courses extends React.Component {
   // Constructor
@@ -32,58 +33,44 @@ class Courses extends React.Component {
         });
       });
   }
+
+
   render() {
     const { DataisLoaded, items } = this.state;
     if (!DataisLoaded)
       return (
-        <div>
-          <h1> Pleses wait some time.... </h1>{" "}
+        <div className="loader">
+          <div className="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
       );
 
     return (
       <div className="page">
         <br />
-        {console.log(items)}
-        <h1 className="flex"> All Your Courses </h1>{" "}
+        <h1 className="flex" > All Courses Created by You </h1>{" "}
         <div className="course-grid-4">
           {items.courses.courses.map((item) => (
-            <div className="card">
+            <div className="card" key={item._id}>
               <img src={item.image} alt={item.title} className="card-img" />
               <div className="card-content">
                 <div className="card-row">
                   <div className="course-title">{item.title}</div>
-                </div>
-                <div className="card-row"></div>
-                <div className="card-row">
-                  <div className="level">
-                    <BsBarChartFill />
-                    <span>{item.level}</span>
-                  </div>
-                  <div className="time">
-                    <FcClock />
-                    {item.time} Hours
-                  </div>
-                </div>
-                <div className="card-row">
-                  <div className="price">
-                    <BiRupee />
-                    {item.price}
-                  </div>
-                  <div className="rating">
-                    <Link to={`/learning/${item._id}`}>
-                      View <IoIosArrowForward />
+                  <div className="edit">
+                    <Link to={`/teacher/courses/update/${item._id}`}>
+                      <RiEdit2Fill /> Edit
                     </Link>
                   </div>
                 </div>
-                <div className="card-row">
-                  <div className="delete">
-                    <MdDeleteForever /> Delete Forever
+                {/* <div className="card-row">
+                  <div className="course-description">
+                      {item.description}
                   </div>
-                  <div className="edit">
-                    <RiEdit2Fill /> Edit
-                  </div>
-                </div>
+                </div> */}
               </div>
             </div>
           ))}

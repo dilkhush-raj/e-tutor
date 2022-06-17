@@ -50,8 +50,8 @@ const Signup = () => {
 
   return (
     <>
-      <section className="signup">
-        <form method="POST" className="register">
+      <section className="create-course">
+        <form method="POST" className="course-form">
           <div className="form-group">
             <label htmlFor="name"></label>
             <input
@@ -98,6 +98,7 @@ const Signup = () => {
               id="signup"
               value="Signup"
               onClick={PostData}
+              className="btn"
             />
           </div>
         </form>

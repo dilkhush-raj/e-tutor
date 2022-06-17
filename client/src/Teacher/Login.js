@@ -38,8 +38,8 @@ const Login = () => {
 
   return (
     <>
-      <section className="signup">
-        <form method="POST" className="register">
+      <section className="create-course">
+        <form method="POST" className="course-form">
           <div className="form-group">
             <label htmlFor="email"></label>
             <input
@@ -73,6 +73,7 @@ const Login = () => {
               id="signup"
               value="Login"
               onClick={LoginUser}
+              className="btn"
             />
           </div>
         </form>

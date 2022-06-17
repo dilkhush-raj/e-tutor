@@ -6,7 +6,7 @@ export default function Navbar() {
   const Links = [
     { title: "Teach", path: "/teacher" },
     { title: <IoMdCart />, path: "/cart" },
-    { title: <MdNotifications />, path: "/" },
+    { title: <MdNotifications />, path: "#" },
   ];
 
   return (
