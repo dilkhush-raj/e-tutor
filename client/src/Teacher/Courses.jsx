@@ -59,7 +59,7 @@ class Courses extends React.Component {
               <img src={item.image} alt={item.title} className="card-img" />
               <div className="card-content">
                 <div className="card-row">
-                  <div className="course-title">{item.title}</div>
+                  <div className="course-title">{item.title.slice(0, 20) + "  ..."}</div>
                   <div className="edit">
                     <Link to={`/teacher/courses/update/${item._id}`}>
                       <RiEdit2Fill /> Edit

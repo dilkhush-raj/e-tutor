@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { FcClock } from "react-icons/fc";
+import { BsBarChartFill } from "react-icons/bs";
+import { BiRupee } from "react-icons/bi";
+import { Link } from "react-router-dom";
+import { IoIosArrowForward } from "react-icons/io";
 
 const CreateCourse = () => {
   //   title, description, image, user
@@ -60,7 +65,58 @@ const CreateCourse = () => {
 
   return (
     <>
+    
       <section className="create-course">
+        <h2>Create New Course</h2>
+      <br />
+        <div className="flex-p">
+          <div className="card update-preview">
+            <div className="preview-tag">Preview</div>
+            <img src={course.image} alt={course.title} className="card-img" />
+            <div className="card-content">
+              <div className="card-row">
+                <div className="course-title">{course.title}</div>
+              </div>
+              <div className="card-row">
+                <div className="discription">{course.description}</div>
+              </div>
+              <div className="card-row"></div>
+              <div className="card-row">
+                <div className="level">
+                  <BsBarChartFill />
+                  <span>{course.level}</span>
+                </div>
+                <div className="time">
+                  <FcClock />
+                  {course.time} Hours
+                </div>
+              </div>
+              <div className="card-row">
+                <div className="price">
+                  <BiRupee />
+                  {course.price}
+                </div>
+                <div className="rating">
+                  <Link to={`/learning/${course._id}`}>
+                    View <IoIosArrowForward />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="card update-preview">
+            <div className="preview-tag">Preview</div>
+            <iframe
+              src={`https://www.youtube.com/embed/${course.video}`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+        <br />
+
         <form method="POST" className="course-form">
           <div className="form-group">
             <label htmlFor="name">Course Title</label>
@@ -151,6 +207,7 @@ const CreateCourse = () => {
               placeholder="All characters after last slash. Eg. - qoeLC9Yeo6s from url- https://youtu.be/qoeLC9Yeo6s"
               required
             />
+            <div>Please see preview at <a href="#">top</a> to ensure that you have entered right video Id</div>
           </div>
           {/* <div className="form-group">
             <label htmlFor="user"></label>

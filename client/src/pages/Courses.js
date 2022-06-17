@@ -48,10 +48,10 @@ class Courses extends React.Component {
               <img src={item.image} alt={item.title} className="card-img" />
               <div className="card-content">
                 <div className="card-row">
-                  <div className="course-title">{item.title}</div>
+                  <div className="course-title">{item.title.slice(0, 25) + "  ..."}</div>
                 </div>
                 <div className="card-row">
-                  <div className="discription">{item.description}</div>
+                  <div className="discription">{item.description.slice(0, 70) + "  ..."}</div>
                 </div>
                 <div className="card-row"></div>
                 <div className="card-row">

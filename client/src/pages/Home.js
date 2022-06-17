@@ -1,12 +1,24 @@
-// import Hero from "../components/Hero.js";
-import React from "react";
+import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { useUserAuth } from "../context/UserAuthContext";
-import Card from "../components/Card";
 import Typewriter from "typewriter-effect";
 import Footer from "../components/Footer";
 
+import TextField from "@mui/material/TextField";
+import List from "../components/List";
+
 export default function Home() {
+
+  
+
+  const [inputText, setInputText] = useState("");
+  let inputHandler = (e) => {
+    //convert input text to lower case
+    var lowerCase = e.target.value.toLowerCase();
+    setInputText(lowerCase);
+  };
+
+
   const { user } = useUserAuth();
   function CheckUser(user) {
     if (user) {
@@ -57,6 +69,20 @@ export default function Home() {
         </div> */}
       </div>
       <div className="p-2">
+        <br /><br />
+        <h2>Search Course</h2>
+        <div className="search">
+        <TextField
+          id="outlined-basic"
+          onChange={inputHandler}
+          variant="outlined"
+          fullWidth
+          label="Search"
+        />
+      </div>
+      <List input={inputText} id="list-box" />
+
+
       <br /><br /><h2>Lorem Ipsum</h2>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quasi accusamus molestias beatae distinctio accusantium perferendis fugit quaerat alias ad.
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat ratione deleniti, quod, in magni, laudantium alias ut nam eius corporis iste. Itaque vero labore dolores!

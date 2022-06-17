@@ -572,6 +572,15 @@ option{
   grid-template-columns: 1fr 1fr;
 }
 
+.no-list{
+  list-style: none;
+}
+
+.searched-data{
+  height: 50px;
+  overflow: hidden;
+}
+
 .update-preview iframe{
   height: 100%;
   padding: 1rem;
