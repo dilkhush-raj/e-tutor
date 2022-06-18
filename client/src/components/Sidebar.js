@@ -7,14 +7,23 @@ import ProfileImage from "../avatar.png";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 
+import { AiFillHome } from "react-icons/ai";
+import { ImBooks } from "react-icons/im";
+import { FaBookReader } from "react-icons/fa";
+import { IoMdCart } from "react-icons/io";
+import {
+  RiUserSettingsFill,
+  RiMessage2Fill,
+  RiInformationFill,
+} from "react-icons/ri";
+
 export default function Sidebar() {
-  
   const [sidebar, setSidebar] = useState(false);
   const ShowSidebar = () => setSidebar(!sidebar);
 
   const { user } = useUserAuth();
 
-  function CheckUser(user){
+  function CheckUser(user) {
     if (user) {
       return true;
     }
@@ -23,64 +32,79 @@ export default function Sidebar() {
   const Links = [
     {
       title: "Home",
+      icon: <AiFillHome />,
       path: "/",
     },
     {
-      title: "My Learning",
-      path: "/student",
+      title: "All Courses",
+      icon: <ImBooks />,
+      path: "/courses",
     },
-    // {
-    //   title: "My Cart",
-    //   path: "/",
-    // },
-    // {
-    //   title: "Account Settings",
-    //   path: "/",
-    // },
     {
-      title: "Teach on e-Tutor",
-      path: "/tutor/login",
+      title: "My Learning",
+      icon: <FaBookReader />,
+      path: "/learning",
+    },
+    {
+      title: "My Cart",
+      icon: <IoMdCart />,
+      path: "/cart",
+    },
+    {
+      title: "Account Settings",
+      icon: <RiUserSettingsFill />,
+      path: "/settings",
     },
     {
       title: "Contact Us",
+      icon: <RiMessage2Fill />,
       path: "/contact",
     },
     {
       title: "About Us",
+      icon: <RiInformationFill />,
       path: "/about",
     },
   ];
 
   return (
     <>
-     <div id="menu-btn" className="menu-button" onClick={ShowSidebar} >
+      <div id="menu-btn" className="menu-button" onClick={ShowSidebar}>
         =
       </div>
-    <div className={sidebar ? "sidebar active-sidebar" : "sidebar"}  onClick={ShowSidebar}>
-     
-      <div className="row">
-        <div className="user-image">
-          {/* <img src="/images/avatar.png" alt="user profile" /> */}
-          <img src={(user && user.photoURL) || ProfileImage} />
+      <div
+        className={sidebar ? "sidebar active-sidebar" : "sidebar"}
+        onClick={ShowSidebar}
+      >
+        <div className="row">
+          <div className="user-image">
+            {/* <img src="/images/avatar.png" alt="user profile" /> */}
+            <img src={(user && user.photoURL) || ProfileImage} />
+          </div>
+          <div className="center">
+            <div>{user && user.displayName}</div>
+            <div>{user && user.email}</div>
+
+            <li>{CheckUser(user) ? <></> : <LoginButton />}</li>
+          </div>
         </div>
-        <div className="center">
-          <div>{user && user.displayName}</div>
-          <div>{user && user.email}</div>
-        </div>
+        <hr className="sidebar-hr" />
+        <ul className="row">
+          {Links.map((item, index) => {
+            return (
+              <Link to={item.path} key={index} className="sidebar-link">
+                <li>
+                  {item.icon}
+                  {item.title}
+                </li>
+              </Link>
+            );
+          })}
+          <div className="sidebar-link">
+            <li>{CheckUser(user) ? <LogoutButton /> : <></>}</li>
+          </div>
+        </ul>
       </div>
-      <div className="login-btn">
-        {CheckUser(user) ? <LogoutButton/> : <LoginButton />}
-      </div>
-      <ul className="row">
-        {Links.map((item, index) => {
-          return (
-            <Link to={item.path} key={index}>
-              <li>{item.title}</li>
-            </Link>
-          );
-        })}
-      </ul>
-    </div>
     </>
   );
 }

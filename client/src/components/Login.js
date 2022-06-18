@@ -17,7 +17,7 @@ const Login = () => {
     setError("");
     try {
       await logIn(email, password);
-      navigate("/home");
+      navigate("/");
     } catch (err) {
       setError(err.message);
     }
@@ -27,7 +27,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await googleSignIn();
-      navigate("/student");
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }
@@ -71,7 +71,7 @@ const Login = () => {
         </div>
       </div>
       <div className="p-4 box mt-3 text-center">
-        Don't have an account? <Link to="/student/signup">Sign up</Link>
+        Don't have an account? <Link to="/signup">Sign up</Link>
       </div>
     </>
   );

@@ -16,7 +16,7 @@ const Signup = () => {
     setError("");
     try {
       await signUp(email, password);
-      navigate("/tutor/login");
+      navigate("/login");
     } catch (err) {
       setError(err.message);
     }
@@ -25,7 +25,7 @@ const Signup = () => {
   return (
     <>
       <div className="p-4 box">
-        <h2 className="mb-3">Tutor Signup</h2>
+        <h2 className="mb-3">Student Signup</h2>
         {error && <Alert variant="danger">{error}</Alert>}
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -52,7 +52,7 @@ const Signup = () => {
         </Form>
       </div>
       <div className="p-4 box mt-3 text-center">
-        Already have an account? <Link to="/tutor/login">Log In</Link>
+        Already have an account? <Link to="/login">Log In</Link>
       </div>
     </>
   );

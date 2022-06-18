@@ -1,19 +1,23 @@
-const express = require("express");
-const app = express();
-const cors = require("cors");
+import express from "express";
+import mongoose from "mongoose";
+import courseRouter from "./routes/course-routes.js";
+import router from "./routes/user-routes.js";
+import cors from "cors";
 
-require("dotenv").config({ path: "./config.env" });
-const port = process.env.PORT || 5000;
+const app = express();
+
+const db =
+  "mongodb+srv://dilkhushraj:dilkhush2004@cluster0.hup8qb2.mongodb.net/?retryWrites=true&w=majority";
+
 app.use(cors());
 app.use(express.json());
-app.use(require("./routes/record"));
-// get driver connection
-const dbo = require("./db/conn");
 
-app.listen(port, () => {
-  // perform a database connection when server starts
-  dbo.connectToServer(function (err) {
-    if (err) console.error(err);
-  });
-  console.log(`Server is running on port: ${port}`);
-});
+app.use("/api/user", router);
+app.use("/api/course", courseRouter);
+mongoose
+  .connect(db)
+  .then(() => app.listen(5000))
+  .then(() =>
+    console.log("connected to database and listening to localhost:5000")
+  )
+  .catch((err) => console.log(err));

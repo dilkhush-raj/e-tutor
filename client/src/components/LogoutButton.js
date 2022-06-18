@@ -1,6 +1,7 @@
 import React from "react";
 import { useUserAuth } from "../context/UserAuthContext";
 import { useNavigate } from "react-router";
+import {BiLogOut} from "react-icons/bi";
 
 const LogoutButton = () => {
   const { logOut } = useUserAuth();
@@ -15,8 +16,8 @@ const LogoutButton = () => {
   };
   return (
     <>
-      <div className="center btn" onClick={handleLogout}>
-        Log Out
+      <div onClick={handleLogout} className="logout-btn">
+        <BiLogOut />Log Out
       </div>
     </>
   );
