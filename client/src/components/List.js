@@ -39,21 +39,14 @@ function List(props) {
   }
   if (!DataisLoaded)
     return (
-      <div className="loader">
-        <div className="lds-ring">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
+      <div>Loading</div>
     );
   return (
     <ul className="searched-data">
       {filteredData.map((item) => (
-        <Link to={item._id} key={"/learning/" + item._id}>
+        <a href={"/learning/" + item._id} key={item._id}>
           <li className="no-list">{item.title}</li>
-        </Link>
+        </a>
       ))}
     </ul>
   );

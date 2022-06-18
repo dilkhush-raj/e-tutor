@@ -37,7 +37,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/learning/:id" element={<Course />} />
+            <Route path="/learning/:id" element={<ProtectedRoute><Course /></ProtectedRoute>} />
           </Routes>
         </div>
       </div>

@@ -453,6 +453,29 @@ a{
   gap: 1rem;
 }
 
+.course{
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 1rem;
+
+}
+
+.notification{
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 80px;
+  right: 0;
+  background-color: white;
+  padding: 1rem;
+  padding-right: 2rem;
+  color: #000;
+}
+
+.notification-active{
+  display: flex;
+}
+
 /* loader start  */
 
 .loader{
@@ -506,6 +529,21 @@ a{
 
 /* loader ends */
 
+.search-box{
+  height: 70px;
+  width: 500px;
+  overflow: hidden;
+  padding-top: 10px;
+  position: fixed;
+  top: 0;
+  left: 30%;
+  background-color: white;
+}
+
+.search-box:hover{
+  height: 120px;
+}
+
 
 .cr-title{
   color: white;
@@ -515,7 +553,7 @@ a{
 }
 
 .video{
-  width: 70%;
+  width: 100%;
   aspect-ratio: 16/9;
   margin: 0 auto;
 }

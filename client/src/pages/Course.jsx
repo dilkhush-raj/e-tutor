@@ -73,6 +73,7 @@ function Course() {
     <div className="page">
       <div className="cr-title">{course.items.course.title}</div>
       <div className="course p-2">
+        <div>
         <iframe
           width="560"
           src={`https://www.youtube.com/embed/${course.items.course.video}`}
@@ -93,6 +94,12 @@ function Course() {
         {/* {course.teacher.} */}
         <h3>Comments / Questions</h3>
         <p>No Comments</p>
+        </div>
+        <div>
+          <h3>Course Details</h3>
+          <span>Course Level: {course.items.course.level}</span><br />
+          <span>Course Duration: {course.items.course.time}</span>
+        </div>
         <br />
       </div>
     </div>
