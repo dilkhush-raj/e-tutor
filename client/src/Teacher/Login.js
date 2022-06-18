@@ -8,6 +8,17 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isSignup, setIsSignup] = useState(false);
+  const [userData, setUserData] = useState("");
+
+  
+  const IsLogged = localStorage.getItem("IsLogged");
+  console.log(IsLogged);
+  function CheckUser() {
+    if (IsLogged == "true") {
+      navigate("/teacher/");
+    }
+  }
 
   const LoginUser = async (e) => {
     e.preventDefault();
@@ -23,17 +34,26 @@ const Login = () => {
       }),
     });
 
-    const data = res.json();
+    const data = res.json().then((data) => {
+      setUserData(data);
+    });
 
-
-    if(res.status === 404 || !data) {
+    if (res.status === 404 || !data) {
       window.alert("Invalid Credentials");
     } else {
-      window.alert("Login Successful")
-      navigate("/teacher/");
+      setIsSignup(true);
+      localStorage.setItem("userId", userData.user._id);
+      localStorage.setItem("IsLogged", true);
+
+      window.alert("Login Successful");
       
-      // .then((data) => localStorage.setItem("userId", data.user._id))
+      // navigate("/teacher/");
+      window.location.href="/teacher"
     }
+
+   
+
+    // console.log(userData);
   };
 
   return (
@@ -41,7 +61,7 @@ const Login = () => {
       <section className="create-course">
         <form method="POST" className="course-form">
           <div className="form-group">
-            <label htmlFor="email"></label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               name="email"
@@ -54,7 +74,7 @@ const Login = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="password"></label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               name="password"

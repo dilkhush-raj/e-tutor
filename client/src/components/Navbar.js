@@ -62,7 +62,7 @@ export default function Navbar() {
           );
         })}
         <li>
-              <div  onClick={showNotification}><MdNotifications /></div>
+              <div  onClick={showNotification} className="pointer"><MdNotifications /></div>
             </li>
       </ul>
     </div>

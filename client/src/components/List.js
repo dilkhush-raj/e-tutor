@@ -44,9 +44,9 @@ function List(props) {
   return (
     <ul className="searched-data">
       {filteredData.map((item) => (
-        <a href={"/learning/" + item._id} key={item._id}>
+        <Link to={"/learning/" + item._id} key={item._id}>
           <li className="no-list">{item.title}</li>
-        </a>
+        </Link>
       ))}
     </ul>
   );

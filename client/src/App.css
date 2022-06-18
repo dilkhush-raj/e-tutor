@@ -472,6 +472,11 @@ a{
   color: #000;
 }
 
+.pointer{
+  cursor: pointer;
+  color: #000;
+}
+
 .notification-active{
   display: flex;
 }

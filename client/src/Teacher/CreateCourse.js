@@ -5,10 +5,15 @@ import { BsBarChartFill } from "react-icons/bs";
 import { BiRupee } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
+import imagePlaceholder from "../placeholder-image.jpg";
 
 const CreateCourse = () => {
   //   title, description, image, user
   let navigate = useNavigate();
+  const teacherId = localStorage.getItem("userId");
+  // console.log(teacherId);
+
+
 
   const [course, setCourse] = useState({
     title: "",
@@ -18,7 +23,7 @@ const CreateCourse = () => {
     time: "",
     price: "",
     video: "",
-    user: "62aa0246021c9967041f94c9",
+    user: teacherId,
   });
 
   let name, value;
@@ -65,14 +70,19 @@ const CreateCourse = () => {
 
   return (
     <>
-    
       <section className="create-course">
         <h2>Create New Course</h2>
-      <br />
+        <br />
         <div className="flex-p">
           <div className="card update-preview">
             <div className="preview-tag">Preview</div>
-            <img src={course.image} alt={course.title} className="card-img" />
+
+            {/* <img src={(user && user.photoURL) || ProfileImage} /> */}
+            <img
+              src={course.image || imagePlaceholder}
+              alt={course.title}
+              className="card-img"
+            />
             <div className="card-content">
               <div className="card-row">
                 <div className="course-title">{course.title}</div>
@@ -97,9 +107,9 @@ const CreateCourse = () => {
                   {course.price}
                 </div>
                 <div className="rating">
-                  <Link to={`/learning/${course._id}`}>
+                  <i>
                     View <IoIosArrowForward />
-                  </Link>
+                  </i>
                 </div>
               </div>
             </div>
@@ -132,7 +142,7 @@ const CreateCourse = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="image">Couse Thumbnail Image URL</label>
+            <label htmlFor="image">Course Thumbnail Image URL</label>
             <input
               type="url"
               name="image"
@@ -161,10 +171,18 @@ const CreateCourse = () => {
           <div className="form-group form-group-select">
             <label htmlFor="level">Select Course Level</label>
             <select value={course.level} onChange={handleInputs} name="level">
-              <option className="option" value="none" selected hidden>Select an Option</option>
-              <option className="option" value="Beginner">Beginner</option>
-              <option className="option" value="Intermediate">Intermediate</option>
-              <option className="option" value="Advanced">Advanced</option>
+              <option className="option" value="none" selected hidden>
+                Select an Option
+              </option>
+              <option className="option" value="Beginner">
+                Beginner
+              </option>
+              <option className="option" value="Intermediate">
+                Intermediate
+              </option>
+              <option className="option" value="Advanced">
+                Advanced
+              </option>
             </select>
           </div>
 
@@ -207,7 +225,10 @@ const CreateCourse = () => {
               placeholder="All characters after last slash. Eg. - qoeLC9Yeo6s from url- https://youtu.be/qoeLC9Yeo6s"
               required
             />
-            <div>Please see preview at <a href="#">top</a> to ensure that you have entered right video Id</div>
+            <div>
+              Please see preview at <a href="#">top</a> to ensure that you have
+              entered right video Id
+            </div>
           </div>
           {/* <div className="form-group">
             <label htmlFor="user"></label>

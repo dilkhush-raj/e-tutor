@@ -53,7 +53,7 @@ const Signup = () => {
       <section className="create-course">
         <form method="POST" className="course-form">
           <div className="form-group">
-            <label htmlFor="name"></label>
+            <label htmlFor="name">Name</label>
             <input
               type="text"
               name="name"
@@ -66,7 +66,7 @@ const Signup = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="email"></label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               name="email"
@@ -79,7 +79,7 @@ const Signup = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="password"></label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               name="password"

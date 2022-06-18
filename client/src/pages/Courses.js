@@ -5,6 +5,7 @@ import { BsBarChartFill } from "react-icons/bs";
 import { BiRupee } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
+import imagePlaceholder from "../placeholder-image.jpg";
 
 class Courses extends React.Component {
   // Constructor
@@ -45,7 +46,7 @@ class Courses extends React.Component {
         <div className="course-grid">
           {items.courses.map((item) => (
             <div className="card" key={item._id}>
-              <img src={item.image} alt={item.title} className="card-img" />
+              <img src={item.image || imagePlaceholder} alt={item.title} className="card-img" />
               <div className="card-content">
                 <div className="card-row">
                   <div className="course-title">{item.title.slice(0, 25) + "  ..."}</div>

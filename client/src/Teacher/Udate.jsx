@@ -5,6 +5,7 @@ import { BsBarChartFill } from "react-icons/bs";
 import { BiRupee } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
+import imagePlaceholder from "../placeholder-image.jpg";
 
 const UpdateCourse = () => {
   const { id } = useParams();
@@ -109,7 +110,11 @@ const UpdateCourse = () => {
         <div className="flex-p">
           <div className="card update-preview">
             <div className="preview-tag">Preview</div>
-            <img src={course.image} alt={course.title} className="card-img" />
+            <img
+              src={course.image || imagePlaceholder}
+              alt={course.title}
+              className="card-img"
+            />
             <div className="card-content">
               <div className="card-row">
                 <div className="course-title">{course.title}</div>
@@ -196,15 +201,21 @@ const UpdateCourse = () => {
               required="required"
             />
           </div>
-          <div className="form-group">
+          <div className="form-group form-group-select">
             <label htmlFor="level">Select Course Level</label>
             <select value={course.level} onChange={handleInputs} name="level">
-              <option value={course.level} defaultValue hidden>
-                {course.level}
+              <option className="option" value="none" selected hidden>
+                Select an Option
               </option>
-              <option value="Beginner">Beginner</option>
-              <option value="Intermediate">Intermediate</option>
-              <option value="Advanced">Advanced</option>
+              <option className="option" value="Beginner">
+                Beginner
+              </option>
+              <option className="option" value="Intermediate">
+                Intermediate
+              </option>
+              <option className="option" value="Advanced">
+                Advanced
+              </option>
             </select>
           </div>
 
